@@ -99,7 +99,7 @@ google.charts.setOnLoadCallback(drawBackgroundColor);
 function drawBackgroundColor() {
   var data = new google.visualization.DataTable();
   data.addColumn('number', 'X');
-  data.addColumn('number', 'Dogs');
+  data.addColumn('number', 'Contributions');
 
   data.addRows([
     [1, 1],
