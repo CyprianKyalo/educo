@@ -426,30 +426,34 @@ code {
 }
 
 .graph{
-  border: 2px solid black;
-  margin-left: 17rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.526);
+  margin-left: 16.5rem;
   width: 45%;
   height: 30rem;
 }
 
 .graph .graph-posts{
-  border: 2px solid black;
+  border: 2px solid rgba(22, 180, 180);
   margin-left: 3rem;
   width: 12rem;
   height: 5.5rem;
   margin-top: 1rem;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
+  background-color: rgba(22, 180, 180);
+  color: white;
 }
 
 .graph .graph-reply{
-  border: 2px solid black;
+  border: 2px solid rgba(22, 180, 180);
   margin-left: 22rem;
   margin-top: -5.6rem;
   width: 12rem;
   height: 5.5rem;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
+  background-color: rgba(22, 180, 180);
+  color: white;
 }
 
 .graph .graph-graph{
@@ -467,10 +471,11 @@ code {
 }
 
 .posts{
-  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.526);
   float: right;
   width: 33%;
   margin-top: -30.2rem;
+  margin-right: 15px;
   height: 30rem;
 }
 
@@ -498,7 +503,7 @@ code {
 
 .posts .posts-calendar #monthName{
   position: relative;
-  background: green;
+  background: rgba(22, 180, 180);
   padding: 5px 10px;
   font-size: 32px;
   font-weight: 700;
@@ -516,7 +521,7 @@ code {
   line-height: 1em;
   font-size: 20px;
   font-weight: 289;
-  color: rgb(21, 119, 12);
+  color: rgba(22, 180, 180);
 }
 
 .posts .posts-recent #noPosts{

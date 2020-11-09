@@ -44,7 +44,7 @@
 
         <section class="graph">
             <div class="graph-posts">
-                <h3>Total posts</h3>
+                <h3 style="margin-top: 15px;">Total posts</h3>
                     <?php
                     session_start();
                     //$id = $_SESSION['userid'];
@@ -69,7 +69,7 @@
                 
             </div>
             <div class="graph-reply">
-                <h3>Total replies</h3>
+                <h3 style="margin-top: 15px;">Total replies</h3>
                     <?php
                         if(!$link){
                             die("Could not connect: ".mysqli_error());
