@@ -20,8 +20,8 @@
             </div>
 
             <div class="input-group">
-                <label for="l-name">Last Name</label>
-                <input type="text" name="lname" id="l-name" required placeholder="Enter your last name">
+                <label for="l-name">User Name</label>
+                <input type="text" name="uname" id="u-name" required placeholder="Enter your last name">
             </div>
 
             <div class="input-group">

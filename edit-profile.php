@@ -62,35 +62,42 @@ include "Post_Com/config.php";?>
     <div class="content">
     	<div class="pic-section">
     		<img src="https://lh3.googleusercontent.com/proxy/45vpO98hayw3EMAMOsPiN-BOh8G992YhI3gp84A6UDq3xqE97nBwyILLN2tXTIQhrdrgAqLwD9Dk7FHh0wi-GPSKIoj01wi1JJTBneZbeIB-Eku49qZbXc3KdSpVwvkJOavbA9hsJjiVTrzMdLP2UUnx">
-    		<div id="icon">
+    		<!--<div id="icon">
 	    		<i class="fa fa-pencil"></i>
 	    		<i class="fa fa-trash"></i>
-    		</div>
+    		</div>-->
     	</div>
 
     	<div class="profile-info">
     		<h2>Edit Profile</h2>
-    		<label>Full Name</label><br>
-    		<input type="text" name="" value="<?php echo $_SESSION['username']; ?>"><br>
+            <form action="auth/server_auth.php" method="post" id="form-profile">
+        		<label>Full Name</label><br>
+        		<input type="text" name="full_name" required value="<?php echo $_SESSION['full_name']; ?>" ><br>
 
-    		<br><label>Username</label><br>
-    		<input type="text" name="" value="<?php echo $_SESSION['email']; ?>"><br>
+        		<br><label>Username</label><br>
+        		<input type="text" name="user_name" required value="<?php echo $_SESSION['username']; ?>"><br>
 
-    		<br><label>Email</label><br>
-    		<input type="email" name="" value="<?php echo $_SESSION['email']; ?>"><br>
+        		<br><label>Email</label><br>
+        		<input type="email" name="email" required value="<?php echo $_SESSION['email']; ?>"><br>
 
-    		<br>
-    		<br>
-    		<!--<br><a href="#">Change Password</a>
-    		<a href="#">Save</a>-->
-    		<div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 35px; padding-right: 5px;">
-                            <i class="fa fa-floppy-o" aria-hidden="true" style="color: white;"></i> <a href="#" style="text-decoration: none; margin-left: 10px; color: white;">Save</a>
+        		<br>
+        		<br>
+                    <label id="about">About</label><br>
+                    <textarea name="a-bout"></textarea>
+                <br><br>
+        		<!--<br><a href="#">Change Password</a>
+        		<a href="#">Save</a>-->
+        		<div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 35px; padding-right: 5px;">
+                                <i class="fa fa-floppy-o" aria-hidden="true" style="color: white;"></i> 
+                                <input type="submit" name="save" style="text-decoration: none; margin-left: 10px; color: white; background-color: rgba(22, 180, 180);" >
+                                <!--<a href="#" onclick="this.parentNode.parentNode.submit();" style="text-decoration: none; margin-left: 10px; color: white;" name="save"><input type="submit" name="Save"></a>-->
+                </div>
 
-            </div>
 
-            <div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 10px; margin-top: -3rem; margin-left: 15rem;">
-                            <i class="fa fa-times" aria-hidden="true" style="color: white;"></i> <a href="profile.php" style="text-decoration: none; margin-left: 10px; color: white;">Cancel</a>
-            </div>
+                <div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 10px; margin-top: -3rem; margin-left: 15rem;">
+                                <i class="fa fa-times" aria-hidden="true" style="color: white;"></i> <a href="profile.php" style="text-decoration: none; margin-left: 10px; color: white;">Cancel</a>
+                </div>
+            </form>
 
     	</div>
     </div>

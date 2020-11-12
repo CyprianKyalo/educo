@@ -138,7 +138,7 @@ include "config.php";?>
       $result1 = $statement1->fetchAll();
       foreach($result1 as $row1)
       {
-      $topic_by=$row1['first_name']." ".$row1['last_name'];
+      $topic_by=$row1['user_name'];
     }
     }else {
       $topic_by='Anonymous';
@@ -271,7 +271,7 @@ include "config.php";?>
             $resultby1 = $statementby1->fetchAll();
             foreach($resultby1 as $rowby1)
             {
-            $comment_by=$rowby1['first_name']." ".$rowby1['last_name'];
+            $comment_by=$rowby1['user_name'];
           }
           }else {
             $comment_by='Anonymous';

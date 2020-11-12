@@ -69,28 +69,32 @@ include "Post_Com/config.php";?>
         </div>
 
         <div class="profile-info">
-            <h2>Change Password</h2>
-            <label>Old Password</label><br>
-            <input type="password" name=""><br>
+            <form method="POST" action="auth/server_auth.php">
+                <h2>Change Password</h2>
+                <p style="color:brown"><?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg']; unset($_SESSION['msg']);}?></p>
 
-            <br><label>New Password</label><br>
-            <input type="password" name=""><br>
+                <label>Old Password</label><br>
+                <input type="password" name="o_pwd" required><br>
 
-            <br><label>Confirm New Password</label><br>
-            <input type="password" name=""><br>
-            <br>
-            <!--<br><a href="#">Change Password</a>
-            <a href="#">Save</a>-->
-            <div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 35px; padding-right: 5px;">
-                            <i class="fa fa-floppy-o" aria-hidden="true" style="color: white;"></i> <a href="#" style="text-decoration: none; margin-left: 10px; color: white;">Save</a>
+                <br><label>New Password</label><br>
+                <input type="password" name="n_pwd" required><br>
 
-            </div>
+                <br><label>Confirm New Password</label><br>
+                <input type="password" name="c_npwd" required><br>
+                <br>
+                <!--<br><a href="#">Change Password</a>
+                <a href="#">Save</a>-->
+                <div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 35px; padding-right: 5px;">
+                                <i class="fa fa-floppy-o" aria-hidden="true" style="color: white;"></i> <a href="#" style="text-decoration: none; margin-left: 10px; color: white;"><input type="submit" name="save_pwd"> Save</a>
 
-            <div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 10px; margin-top: -3rem; margin-left: 15rem;">
-                            <i class="fa fa-times" aria-hidden="true" style="color: white;"></i> <a href="profile.php" style="text-decoration: none; margin-left: 10px; color: white;">Cancel</a>
-            </div>
+                </div>
 
-        </div>
+                <div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 10px; margin-top: -3rem; margin-left: 15rem;">
+                                <i class="fa fa-times" aria-hidden="true" style="color: white;"></i> <a href="profile.php" style="text-decoration: none; margin-left: 10px; color: white;">Cancel</a>
+                </div>
+
+             </div>
+         </form>
     </div>
 
 </body>
