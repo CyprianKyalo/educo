@@ -104,7 +104,7 @@ $link = connect();
 						if(password_verify($o_pwd, $row["user_password"])){
 							$query = "UPDATE users SET user_password = '$n_pwd' WHERE user_id = '$uid'";
 							if(insert($query)=="success"){
-								echo "<script>alert('Success')</script>";
+								//echo "<script>alert('Success')</script>";
 								$_SESSION['msg'] = "Password changed successfully";
 								header("Location: ../passwd.php");
 							} else{
@@ -128,4 +128,20 @@ $link = connect();
 		}
 	}
 
+	if(isset($_POST['sub'])){
+		$iname = $_POST['issue'];
+		$idesc = $_POST['desc'];
+		$uid = $_SESSION['user_id'];
+
+		$query = "INSERT INTO issues (issue_by, issue_name, issue_desc, issue_date) VALUES ('$uid', '$iname', '$idesc', CURRENT_TIMESTAMP)";
+
+		if(insert($query) == "success"){
+			$_SESSION['msg'] = "Posted successfully";
+			header("Location: ../help_center.php");
+		}else{
+			$_SESSION['msg'] = "There was an error. Please try again";
+			header("Location: ../help_center.php");
+		}
+	}
 ?>
+

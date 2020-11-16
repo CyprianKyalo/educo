@@ -380,7 +380,7 @@ code {
 .content .pic-section{
   margin-left: 20rem;
   /*margin-top: -35rem;*/
-  margin-top: 8rem;
+  margin-top: 8 rem;
 }
 
 .content .pic-section img{
@@ -415,4 +415,80 @@ code {
   padding: 20px;
   font-size: 25px;
   cursor: pointer;
+}
+
+/*help_center.php*/
+.contact-form form{
+  margin-left: 17rem;
+  margin-top: -38rem;
+  width: 470px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+}
+
+.contact-form textarea{
+  width: 400px;
+  height: 100px;
+}
+
+.contact-form #issue_iss{
+  width: 400px;
+  height: 40px;
+}
+
+.contact-faqs{
+  margin-left: 17rem;
+  margin-top: 2rem;
+  border-radius: 7px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+  background: #fff;
+  width: 500px;
+}
+
+.contact-faqs .faqs{
+  padding: 0px 20px 20px;
+  
+}
+
+.contact-faqs h2{
+  margin-left: 30px;
+}
+
+.contact-faqs .faqs details, .my_issues .faqs details{
+  padding: 10px 20px;
+  background: #f6f6f6;
+  border-radius: 7px;
+  margin-top: 20px;
+  font-family: "Rubik";
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.contact-faqs .faqs details summary, .my_issues .faqs details summary{
+  outline: none;
+  cursor: pointer;
+}
+
+.my_issues{
+  margin-left: 55rem;
+  margin-top: -38rem;
+ 
+  border-radius: 7px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+  background: #fff;
+  width: 25%;
+  height: 400px;
+}
+
+.my_issues h2{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.my_issues .noPosts{
+  text-align: center;
+  font-size: 20px;
+  padding-top: 20px;
 }

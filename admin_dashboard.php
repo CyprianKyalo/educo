@@ -15,7 +15,7 @@ include "Post_Com/config.php";?>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
 </head>
 <body>
 
@@ -34,15 +34,36 @@ include "Post_Com/config.php";?>
             </ul>
         </div>
 
-        <div class="main" style="width: 83%;">
-          <?php include 'top_nav.php'; ?>
-        </div>
+        <!-- <div class="main" style="width: 83%;">
+          <?php //include 'top_nav.php'; ?>
+        </div> -->
     </div>
     <div class="head-dash">
-        <h2>Dashboard</h2>
+        <h2>Welcome back, <?php echo $_SESSION['username']?></h2>
     </div>
 
-        <section class="graph">
+            <div class="graph-users">
+                <h3>Total users</h3>
+                <?php
+
+                        $link = mysqli_connect("localhost", "root", "", "educo");
+
+                        if(!$link){
+                            die("Could not connect: ".mysqli_error());
+                        }
+
+                        $sql = "SELECT * FROM users";
+                        $result = mysqli_query($link, $sql);
+                        $row_Count = mysqli_num_rows($result);
+
+                        if($row_Count > 0){
+                            echo $row_Count;
+                        }else{
+                            //echo 0;
+                            echo "<div id='postsCount'>0</div>";
+                        }
+                    ?>       
+            </div>
             <div class="graph-posts">
                 <h3 style="margin-top: 15px;">Total posts</h3>
                     <?php
@@ -56,9 +77,7 @@ include "Post_Com/config.php";?>
                             die("Could not connect: ".mysqli_error());
                         }
 
-
-
-                        $sql = "SELECT * FROM topics WHERE topic_by = '$uid'";
+                        $sql = "SELECT * FROM topics";
                         $result = mysqli_query($link, $sql);
                         $row_Count = mysqli_num_rows($result);
 
@@ -78,7 +97,7 @@ include "Post_Com/config.php";?>
                             die("Could not connect: ".mysqli_error());
                         }
 
-                        $sql = "SELECT * FROM replies WHERE reply_by = '$uid'";
+                        $sql = "SELECT * FROM replies";
                         $result = mysqli_query($link, $sql);
                         $row_Count = mysqli_num_rows($result);
 
@@ -90,6 +109,77 @@ include "Post_Com/config.php";?>
                     ?>
 
             </div>
+
+            <div class="graph-new-issues">
+                <h3>New issues</h3>
+                <?php
+
+                        $link = mysqli_connect("localhost", "root", "", "educo");
+
+                        if(!$link){
+                            die("Could not connect: ".mysqli_error());
+                        }
+
+                        $sql = "SELECT * FROM users";
+                        $result = mysqli_query($link, $sql);
+                        $row_Count = mysqli_num_rows($result);
+
+                        if($row_Count > 0){
+                            echo $row_Count;
+                        }else{
+                            //echo 0;
+                            echo "<div id='postsCount'>0</div>";
+                        }
+                    ?>       
+            </div>
+
+            <div class="total-comments">
+                <h3>Total Comments</h3>
+                <?php
+
+                        $link = mysqli_connect("localhost", "root", "", "educo");
+
+                        if(!$link){
+                            die("Could not connect: ".mysqli_error());
+                        }
+
+                        $sql = "SELECT * FROM users";
+                        $result = mysqli_query($link, $sql);
+                        $row_Count = mysqli_num_rows($result);
+
+                        if($row_Count > 0){
+                            echo $row_Count;
+                        }else{
+                            //echo 0;
+                            echo "<div id='postsCount'>0</div>";
+                        }
+                    ?>       
+            </div>
+
+            <div class="total-categories">
+                <h3>Total Categories</h3>
+                <?php
+
+                        $link = mysqli_connect("localhost", "root", "", "educo");
+
+                        if(!$link){
+                            die("Could not connect: ".mysqli_error());
+                        }
+
+                        $sql = "SELECT * FROM users";
+                        $result = mysqli_query($link, $sql);
+                        $row_Count = mysqli_num_rows($result);
+
+                        if($row_Count > 0){
+                            echo $row_Count;
+                        }else{
+                            //echo 0;
+                            echo "<div id='postsCount'>0</div>";
+                        }
+                    ?>       
+            </div>
+
+            <div class="graph">
 
                 <h3 id="cont">Contributions</h3>
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -148,18 +238,19 @@ function drawBackgroundColor() {
 }
 
                 </script>
-                <div id="graph-graph" style="width: 600px; height: 300px"></div>
-        </section>
+                <div id="graph-graph" style="width: 700px; height: 300px"></div>
+            </div>
+        
 
-        <section class="posts">
+        
             <div class="posts-recent">
-                <h3>My Recent Posts</h3>
+                <h3>Recent Posts</h3>
                 <?php
                         if(!$link){
                             die("Could not connect: ".mysqli_error());
                         }
 
-                        $sql = "SELECT topic_subject FROM topics WHERE topic_by = '$uid' ORDER BY topic_date DESC";
+                        $sql = "SELECT topic_subject FROM topics";
                         $result = mysqli_query($link, $sql);
 
                         function getData($result){
@@ -205,12 +296,12 @@ function drawBackgroundColor() {
                 document.getElementById('year').innerHTML = year;
 
             </script>
-        </section>
+      
         <style media="screen">
         /*Dashboard css*/
 .head-dash h2{
 margin-left: 17rem;
-margin-top: -38rem;
+margin-top: -42rem;
 }
 
 .dash{
@@ -219,15 +310,16 @@ margin-top: -38rem;
 
 .graph{
 box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.526);
-margin-left: 16.5rem;
-width: 45%;
-height: 30rem;
+margin-left: 16.8rem;
+width: 54%;
+height: 22rem;
+margin-top: 0rem;
 }
 
-.graph .graph-posts{
+.graph-users{
 border: 2px solid rgba(22, 180, 180);
-margin-left: 3rem;
-width: 12rem;
+margin-left: 17rem;
+width: 13rem;
 height: 5.5rem;
 margin-top: 1rem;
 text-align: center;
@@ -236,11 +328,23 @@ background-color: rgba(22, 180, 180);
 color: white;
 }
 
-.graph .graph-reply{
+.graph-posts{
 border: 2px solid rgba(22, 180, 180);
-margin-left: 22rem;
+margin-left: 33rem;
+width: 13rem;
+height: 5.5rem;
+margin-top: -5.7rem;
+text-align: center;
+border-radius: 5px;
+background-color: rgba(22, 180, 180);
+color: white;
+}
+
+.graph-reply{
+border: 2px solid rgba(22, 180, 180);
+margin-left: 49rem;
 margin-top: -5.6rem;
-width: 12rem;
+width: 13rem;
 height: 5.5rem;
 text-align: center;
 border-radius: 5px;
@@ -248,18 +352,46 @@ background-color: rgba(22, 180, 180);
 color: white;
 }
 
-.graph .graph-graph{
-border: 2px solid black;
-margin-left: 5px;
-margin-top: 3rem;
-width: 70%;
-height: 20rem;
+.graph-new-issues{
+border: 2px solid rgba(22, 180, 180);
+margin-left: 65rem;
+margin-top: -5.7rem;
+width: 13rem;
+height: 5.5rem;
 text-align: center;
+border-radius: 5px;
+background-color: rgba(22, 180, 180);
+color: white;
 }
+
+.total-comments{
+border: 2px solid rgba(22, 180, 180);
+margin-left: 25rem;
+margin-top: 2rem;
+width: 13rem;
+height: 5.5rem;
+text-align: center;
+border-radius: 5px;
+background-color: rgba(22, 180, 180);
+color: white;
+margin-bottom: 11rem;
+}
+
+.total-categories{
+border: 2px solid rgba(22, 180, 180);
+margin-left: 57rem;
+margin-top: -16.5rem;
+width: 13rem;
+height: 5.5rem;
+text-align: center;
+border-radius: 5px;
+background-color: rgba(22, 180, 180);
+color: white;
+}
+
 
 .graph #cont{
 text-align: center;
-
 }
 
 .posts{
@@ -271,14 +403,13 @@ margin-right: 15px;
 height: 30rem;
 }
 
-.posts .posts-recent{
-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.526);
-border-radius: 5px;
-width: 50%;
-height: 10rem;
-margin-left: 6rem;
+.posts-recent{
+border: 2px solid black;
+width: 20%;
+height: 22rem;
+margin-left: 65rem;
 text-align: center;
-margin-top: 1rem;
+margin-top: -22rem;
 overflow-x: auto;
 overflow-y: auto;
 }
@@ -324,10 +455,7 @@ font-size: 20px;
 }
 
 .posts .posts-recent .my_posts{
-    padding: 5px;
-    color: white;
-    background: rgba(22, 170, 180);
-    margin-top: -6px;
+    padding: -5px;
 }
 
 .graph .graph-posts #postsCount, .graph .graph-reply #replyCount{
