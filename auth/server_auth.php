@@ -55,6 +55,8 @@ $link = connect();
 						$_SESSION['email']=$row['user_email'];
 						$_SESSION['user_id']=$row['user_id'];
 						$_SESSION['username']=$row['user_name'];
+						$_SESSION['userabout'] = $row['user_about'];
+						$_SESSION['userimage'] = $row['user_image'];
 						header("Location: test_auth.php");
 					}else{
 						$_SESSION['msg'] = "invalid credentials";
@@ -72,9 +74,28 @@ $link = connect();
 		$fname = mysqli_real_escape_string($link, $_POST["full_name"]);
 		$uname = mysqli_real_escape_string($link, $_POST["user_name"]);
 		$email = mysqli_real_escape_string($link, $_POST['email']);
+		$about = mysqli_real_escape_string($link, $_POST['about']);
 		$uid = $_SESSION['user_id'];
 
-		$sql = "UPDATE users SET full_name = '$fname', user_name = '$uname', user_email = '$email' WHERE user_id = '$uid'";
+		if(!isset($_FILES['img'])){
+			$sql = "UPDATE users SET full_name = '$fname', user_name = '$uname', user_email = '$email', user_about = '$about' WHERE user_id = '$uid'";
+		}else{
+			$image = $_FILES['img'];
+
+			$original_file_name = $_FILES['img']['name'];
+			$file_tmp_location = $_FILES['img']['tmp_name'];
+
+			$file_type = substr($original_file_name, strpos($original_file_name, '.'), strlen($original_file_name));
+			$file_path = "Images/";
+
+			$new_file_name = time().$file_type;
+
+			if(move_uploaded_file($file_tmp_location, $file_path.$new_file_name)){
+				$sql = "UPDATE users SET full_name = '$fname', user_name = '$uname', user_email = '$email', user_about = '$about', user_image = '$new_file_name' WHERE user_id = '$uid'";
+			}else{
+				echo "There was an error uploading the image";
+			}
+		}
 
 		if(insert($sql)=="success"){
 			echo "<script>alert('Success')</script>";
@@ -133,7 +154,7 @@ $link = connect();
 		$idesc = $_POST['desc'];
 		$uid = $_SESSION['user_id'];
 
-		$query = "INSERT INTO issues (issue_by, issue_name, issue_desc, issue_date) VALUES ('$uid', '$iname', '$idesc', CURRENT_TIMESTAMP)";
+		$query = "INSERT INTO issues (issue_by, issue_name, issue_desc, issue_date) VALUES ('$uid', '$iname', '$idesc', CURRENT_DATE)";
 
 		if(insert($query) == "success"){
 			$_SESSION['msg'] = "Posted successfully";

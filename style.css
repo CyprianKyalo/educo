@@ -387,12 +387,13 @@ code {
   border-radius: 50%;
   height: 180px;
   width: 180px;
+  margin-top: 7rem;
 }
 
 .content .profile-info{
   margin-left: 5rem;
   /*margin-top: -35rem;*/
-  margin-top: 5rem;
+  margin-top: 7rem;
 }
 
 .content .profile-info input{

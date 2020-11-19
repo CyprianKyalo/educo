@@ -39,29 +39,20 @@ include "Post_Com/config.php";?>
 </div>
 </div>
 
-    <!--<div class="content">
-                <div class="user-bio">
-                    <div class="pic-section">
-                        <img src="https://lh3.googleusercontent.com/proxy/45vpO98hayw3EMAMOsPiN-BOh8G992YhI3gp84A6UDq3xqE97nBwyILLN2tXTIQhrdrgAqLwD9Dk7FHh0wi-GPSKIoj01wi1JJTBneZbeIB-Eku49qZbXc3KdSpVwvkJOavbA9hsJjiVTrzMdLP2UUnx" alt="maria Hernandez" class="profile-pic" style="height: 30px; width: 30px; border-radius: 50%;">
-                        <div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 142px; padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 10px;">
-                            <i class="fa fa-pencil" aria-hidden="true" style="color: white;"></i> <a href="#" style="text-decoration: none; margin-left: 10px; color: white;">Edit Profile</a>
-                        </div>
-                </div>
-                    <div class="info-section">
-                        <h2>Maria Hernandez</h2>
-                        <p>San Mateo</p>
-                        <div style="display: flex;">
-                            <i class="fa fa-facebook bio-list" aria-hidden="true" style="font-size: 30px;"></i>
-                            <i class="fa fa-twitter bio-list" aria-hidden="true" style="font-size: 30px;"></i>
-                            <i class="fa fa-google bio-list" aria-hidden="true" style="font-size: 30px;"></i>
-                        </div>
-                    </div>
-                </div>
-    </div>-->
+    <?php
+        require_once("auth/db_connect.php");
+        $link = connect();
+
+        $uid = $_SESSION['user_id'];
+
+        $query = "SELECT * FROM users WHERE user_id = '$uid'";
+        $result = mysqli_query($link, $query);
+        $row = mysqli_fetch_array($result);
+    ?>
 
     <div class="content">
     	<div class="pic-section">
-    		<img src="https://lh3.googleusercontent.com/proxy/45vpO98hayw3EMAMOsPiN-BOh8G992YhI3gp84A6UDq3xqE97nBwyILLN2tXTIQhrdrgAqLwD9Dk7FHh0wi-GPSKIoj01wi1JJTBneZbeIB-Eku49qZbXc3KdSpVwvkJOavbA9hsJjiVTrzMdLP2UUnx">
+    		<img src="auth/Images/<?php echo $row['user_image']?>">
     		<!--<div id="icon">
 	    		<i class="fa fa-pencil"></i>
 	    		<i class="fa fa-trash"></i>
@@ -70,21 +61,23 @@ include "Post_Com/config.php";?>
 
     	<div class="profile-info">
     		<h2>Edit Profile</h2>
-            <form action="auth/server_auth.php" method="post" id="form-profile">
+            <form action="auth/server_auth.php" method="post" id="form-profile" enctype="multipart/form-data">
         		<label>Full Name</label><br>
-        		<input type="text" name="full_name" required value="<?php echo $_SESSION['full_name']; ?>" ><br>
+        		<input type="text" name="full_name" required value="<?php echo $row['full_name']; ?>" ><br>
 
         		<br><label>Username</label><br>
-        		<input type="text" name="user_name" required value="<?php echo $_SESSION['username']; ?>"><br>
+        		<input type="text" name="user_name" required value="<?php echo $row['user_name']; ?>"><br>
 
         		<br><label>Email</label><br>
-        		<input type="email" name="email" required value="<?php echo $_SESSION['email']; ?>"><br>
+        		<input type="email" name="email" required value="<?php echo $row['user_email']; ?>"><br>
 
         		<br>
-        		<br>
+        		
                     <label id="about">About</label><br>
-                    <textarea name="a-bout"></textarea>
+                    <textarea name="about" style="width: 100%; height: 50px;" value="<?php echo $row['user_about']; ?>"></textarea>
                 <br><br>
+                <label>Image</label>
+                <input type="file" name="img">
         		<!--<br><a href="#">Change Password</a>
         		<a href="#">Save</a>-->
         		<div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 35px; padding-right: 5px;">

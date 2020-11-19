@@ -111,7 +111,7 @@ include "Post_Com/config.php";?>
             </div>
 
             <div class="graph-new-issues">
-                <h3>New issues</h3>
+                <h3><a href="#" style="color: #fff">New issues</a></h3>
                 <?php
 
                         $link = mysqli_connect("localhost", "root", "", "educo");
@@ -120,7 +120,7 @@ include "Post_Com/config.php";?>
                             die("Could not connect: ".mysqli_error());
                         }
 
-                        $sql = "SELECT * FROM users";
+                        $sql = "SELECT * FROM issues WHERE issue_date = CURRENT_DATE()";
                         $result = mysqli_query($link, $sql);
                         $row_Count = mysqli_num_rows($result);
 
@@ -143,7 +143,7 @@ include "Post_Com/config.php";?>
                             die("Could not connect: ".mysqli_error());
                         }
 
-                        $sql = "SELECT * FROM users";
+                        $sql = "SELECT * FROM comments";
                         $result = mysqli_query($link, $sql);
                         $row_Count = mysqli_num_rows($result);
 
@@ -166,7 +166,7 @@ include "Post_Com/config.php";?>
                             die("Could not connect: ".mysqli_error());
                         }
 
-                        $sql = "SELECT * FROM users";
+                        $sql = "SELECT * FROM categories";
                         $result = mysqli_query($link, $sql);
                         $row_Count = mysqli_num_rows($result);
 

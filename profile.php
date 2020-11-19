@@ -59,9 +59,20 @@ include "Post_Com/config.php";?>
                 </div>
     </div>-->
 
+    <?php
+            require_once("auth/db_connect.php");
+            $link = connect();
+
+            $uid = $_SESSION['user_id'];
+
+            $query = "SELECT * FROM users WHERE user_id = '$uid'";
+            $result = mysqli_query($link, $query);
+            $row = mysqli_fetch_array($result);
+        ?>
+
     <div class="content">
     	<div class="pic-section">
-    		<img src="https://lh3.googleusercontent.com/proxy/45vpO98hayw3EMAMOsPiN-BOh8G992YhI3gp84A6UDq3xqE97nBwyILLN2tXTIQhrdrgAqLwD9Dk7FHh0wi-GPSKIoj01wi1JJTBneZbeIB-Eku49qZbXc3KdSpVwvkJOavbA9hsJjiVTrzMdLP2UUnx">
+    		<img src="auth/Images/<?php echo $row['user_image'];?>">
     		<!--<div id="icon">
 	    		<i class="fa fa-pencil"></i>
 	    		<i class="fa fa-trash"></i>
@@ -77,21 +88,13 @@ include "Post_Com/config.php";?>
             </div>
     	</div>
 
-    	<div class="profile-info" style="width: 40%;">
-    		<!--<h2><?php echo $_SESSION['username']; ?></h2>
-            <h3><?php echo $_SESSION['email']; ?></h3><br>
-            <h4>Points</h4>
-            <p>50</p>-->
 
-            <h2><?php echo $_SESSION['username']; ?></h2>
-            <h3><?php echo $_SESSION['email']; ?></h3><br>
-            <h4>About</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    	<div class="profile-info" style="width: 40%;">
+
+            <h2><?php echo $row['user_name']; ?></h2>
+            <h3><?php echo $row['user_email']; ?></h3><br>
+            <h2>About</h2>
+            <p><?php echo $row['user_about'];?></p>
     		<!--<br><a href="#">Change Password</a>
     		<a href="#">Save</a>
     		<div style="border-radius: 50px; background-color: rgba(22, 180, 180); width: 120px; padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 10px;">

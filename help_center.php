@@ -93,7 +93,7 @@
 				}
 				$uid = $_SESSION['user_id'];
 
-		        $sql = "SELECT issue_name, issue_desc FROM issues WHERE issue_by = '$uid'";
+		        $sql = "SELECT issue_name, issue_desc FROM issues WHERE issue_by = '$uid' ORDER BY issue_id DESC LIMIT 5 ";
 		        $result = mysqli_query($link, $sql);
 		        $res = getData($result);
 
