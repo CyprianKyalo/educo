@@ -1,0 +1,562 @@
+body {
+    margin: auto;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.container {
+    height: 710px;
+}
+
+.session-profile {
+    border-radius: 50%;
+    margin-left: 35px;
+}
+li.box_result {
+    list-style-type: none;
+}
+.chat-top-nav {
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    width: 250px;
+    margin-left: 35%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-links {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fa-search {
+    margin-left: 20px;
+    height: 28px;
+    padding-top: 13px;
+    border-bottom: 1px solid gray;
+    color: gray;
+    margin-top: 15px;
+}
+
+.search-bar {
+    height: 40px;
+    margin-top: 15px;
+    padding-bottom: 0px;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding-left: 5px;
+}
+
+.container, .top-nav, .chat-area {
+    display: flex;
+}
+
+.side-links {
+    border-radius: 25px;
+    padding-top: 15px;
+    margin-bottom: 5px;
+
+}
+
+.side-links a {
+    color: gray;
+}
+
+.side-nav-bar {
+    width: 250px;
+    background-color: #13263a;
+    position: fixed;
+}
+
+.chat-side-nav {
+    list-style: none;
+    padding: 5px;
+}
+
+.side-nav {
+    width: 25px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    padding-left: 35px;
+    height: 14px;
+}
+
+#create-chat {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 25px;
+    padding-top: 15px;
+    background-color: rgba(22, 180, 180);
+    color: white;
+}
+
+.cog {
+    margin-top: 70px;
+}
+
+.topics-bar {
+    width: auto;
+    height: auto;
+    background-color: rgba(192, 192, 192, 0.2);
+    position: fixed;
+}
+
+.main {
+    height: 710px;
+    margin-left: 250px;
+}
+
+.chat-view {
+    width: 100%;
+    height: 625px;
+    padding: 5px;
+    /*margin-left: 190px;*/
+}
+
+.chat-links {
+    list-style: none;
+    display: flex;
+    width: 300px;
+    padding: 5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.chat-links li {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-area {
+    margin-top: 10px;
+    padding: 2px;
+    border: 1px solid silver;
+    border-radius: 25px;
+    width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.receiver, .sender {
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 15px;
+}
+
+.sender {
+    position: relative;
+    left: 410px;
+    background-color: rgba(22, 180, 180, 0.9);
+    color: white;
+}
+
+.receiver {
+    background-color: rgba(192, 192, 192, 0.3);
+}
+
+.topic {
+    padding: 10px;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+    color: gray;
+}
+
+.pull-right{
+  float:right;
+}
+
+.pull-left{
+  float:left;
+}
+
+#fbcomment{
+  background:#fff;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  color: #4b4f56;
+  padding:50px;
+}
+
+.header_comment{
+    font-size: 14px;
+    overflow: hidden;
+    border-bottom: 1px solid #e9ebee;
+    line-height: 25px;
+    margin-bottom: 24px;
+    padding: 10px 0;
+}
+
+.sort_title{
+  color: #4b4f56;
+}
+
+.sort_by{
+  background-color: #f5f6f7;
+  color: #4b4f56;
+  line-height: 22px;
+  cursor: pointer;
+  vertical-align: top;
+  font-size: 12px;
+  font-weight: bold;
+  vertical-align: middle;
+  padding: 4px;
+  justify-content: center;
+  border-radius: 2px;
+  border: 1px solid #ccd0d5;
+}
+.count_comment{
+  font-weight: 600;
+}
+.body_comment{
+    padding: 0 8px;
+    font-size: 14px;
+    display: block;
+    line-height: 25px;
+    word-break: break-word;
+}
+.avatar_comment{
+  display: block;
+}
+.avatar_comment img{
+  height: 48px;
+  width: 48px;
+}
+.box_comment{
+	display: block;
+    position: relative;
+    line-height: 1.358;
+    word-break: break-word;
+    border: 1px solid #d3d6db;
+    word-wrap: break-word;
+    background: #fff;
+    box-sizing: border-box;
+    cursor: text;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+	padding: 0;
+}
+.box_comment textarea{
+	min-height: 40px;
+	padding: 12px 8px;
+	width: 100%;
+	border: none;
+	resize: none;
+}
+.box_comment textarea:focus{
+  outline: none !important;
+}
+.box_comment .box_post{
+	border-top: 1px solid #d3d6db;
+    background: #f5f6f7;
+    padding: 8px;
+    display: block;
+    overflow: hidden;
+}
+.box_comment label{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 11px;
+  color: #90949c;
+  line-height: 22px;
+}
+.box_comment button{
+  margin-left:8px;
+  background-color: #4267b2;
+  border: 1px solid #4267b2;
+  color: #fff;
+  text-decoration: none;
+  line-height: 22px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+.box_comment button:hover{
+  background-color: #29487d;
+  border-color: #29487d;
+}
+.box_comment .cancel{
+	margin-left:8px;
+	background-color: #f5f6f7;
+	color: #4b4f56;
+	text-decoration: none;
+	line-height: 22px;
+	border-radius: 2px;
+	font-size: 14px;
+	font-weight: bold;
+	position: relative;
+	text-align: center;
+  border-color: #ccd0d5;
+}
+.box_comment .cancel:hover{
+	background-color: #d0d0d0;
+	border-color: #ccd0d5;
+}
+.box_comment img{
+  height:16px;
+  width:16px;
+}
+.box_result{
+  margin-top: 24px;
+}
+.box_result .result_comment h4{
+  font-weight: 600;
+  white-space: nowrap;
+  color: #365899;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.358;
+  margin:0;
+}
+.box_result .result_comment{
+  display:block;
+  overflow:hidden;
+  padding: 0;
+}
+.child_replay{
+	border-left: 1px dotted #d3d6db;
+	margin-top: 12px;
+	list-style: none;
+	padding:0 0 0 8px
+}
+.reply_comment{
+	margin:12px 0;
+}
+.box_result .result_comment p{
+  margin: 4px 0;
+  text-align:justify;
+}
+.box_result .result_comment .tools_comment{
+  font-size: 12px;
+  line-height: 1.358;
+}
+.box_result .result_comment .tools_comment a{
+  color: #4267b2;
+  cursor: pointer;
+  text-decoration: none;
+}
+.box_result .result_comment .tools_comment span{
+  color: #90949c;
+}
+.body_comment .show_more{
+  background: #3578e5;
+  border: none;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 24px;
+  padding: 12px;
+  text-shadow: none;
+  width: 100%;
+  font-weight:bold;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+}
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+.content{
+  display: flex;
+  background-color: rgb(192,192,192, 0.2);
+  height: 688px;
+  margin-top: -40.1rem;
+
+}
+
+.content .pic-section{
+  margin-left: 20rem;
+  /*margin-top: -35rem;*/
+  margin-top: 8 rem;
+}
+
+.content .pic-section img{
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  margin-top: 7rem;
+}
+
+.content .profile-info{
+  margin-left: 5rem;
+  /*margin-top: -35rem;*/
+  margin-top: 7rem;
+}
+
+.content .profile-info input{
+  padding: 8px;
+  width: 95%;
+
+}
+
+.content .profile-info label{
+  font-size: 20px;
+}
+
+.content .pic-section #icon{
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+
+}
+
+.content .pic-section #icon i{
+  padding: 20px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/*help_center.php*/
+.contact-form form{
+  margin-left: 17rem;
+  margin-top: -38rem;
+  width: 470px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+}
+
+.contact-form textarea{
+  width: 400px;
+  height: 100px;
+}
+
+.contact-form #issue_iss{
+  width: 400px;
+  height: 40px;
+}
+
+.contact-faqs{
+  margin-left: 17rem;
+  margin-top: 2rem;
+  border-radius: 7px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+  background: #fff;
+  width: 500px;
+}
+
+.contact-faqs .faqs{
+  padding: 0px 20px 20px;
+  
+}
+
+.contact-faqs h2{
+  margin-left: 50px;
+}
+
+.contact-faqs .faqs details, .my_issues .faqs details, .resolved_issues .faqs details{
+  padding: 10px 20px;
+  background: #f6f6f6;
+  border-radius: 7px;
+  margin-top: 20px;
+  font-family: "Rubik";
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.contact-faqs .faqs details summary, .my_issues .faqs details summary, .resolved_issues .faqs details summary{
+  outline: none;
+  cursor: pointer;
+}
+
+.my_issues{
+  margin-left: 55rem;
+  margin-top: -41.5rem;
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 7px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+  background: #fff;
+  width: 25%;
+  height: 20rem;
+}
+
+.my_issues h2{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.my_issues .noPosts{
+  text-align: center;
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.resolved_issues{
+  margin-left: 55rem;
+  margin-top: 3rem;
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 7px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+  background: #fff;
+  width: 25%;
+  height: 20rem;
+}
+
+.resolved_issues h2{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.resolved_issues .noPosts{
+  text-align: center;
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+/*Tables*/
+.users{
+  margin-top: -1rem;
+  margin-left: 15rem;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.users table{
+  width: 90%;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+.users table thead tr th{
+  margin: 2rem;
+  background-color: rgba(22, 180, 180);
+  color: #fff;
+  padding: 7px;
+}
+
+.users table tbody td{
+  padding: 10px;
+  
+}
+
+.users table td{
+  margin-right: groove;
+}
+
+table tbody tr:nth-child(odd){
+  background-color: #e0e5d5;
+} 
+
+.users table tbody tr td a{
+  text-decoration: none;
+  padding: 7px 13px;
+  background-color: grey;
+  color: white;
+  border-radius: 5px;
+}
