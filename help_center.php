@@ -53,13 +53,13 @@
 		}
 		$uid = $_SESSION['user_id'];
 
-        $query = "SELECT issue_name, issue_desc FROM issues LIMIT 2";
+        $query = "SELECT issue_name, issue_desc FROM issues LIMIT 3";
         $result = mysqli_query($link, $query);
         $res = getData($result);
 		?>
 
 	<div class="contact-faqs">
-		<h2>FAQs</h2>
+		<h2>Frequently Asked Questions</h2>
 		<div class="faqs">
 			<?php
 			if($res > 0){
@@ -93,7 +93,7 @@
 				}
 				$uid = $_SESSION['user_id'];
 
-		        $sql = "SELECT issue_name, issue_desc FROM issues WHERE issue_by = '$uid' ORDER BY issue_id DESC LIMIT 5 ";
+		        $sql = "SELECT issue_name, issue_desc FROM issues WHERE issue_by = '$uid' && status = 'Active' ORDER BY issue_id DESC";
 		        $result = mysqli_query($link, $sql);
 		        $res = getData($result);
 
@@ -104,6 +104,43 @@
 	                    <details>
 	                    	<summary><?php echo $value['issue_name'];?></summary>
 		                    <p class="iss"><?php echo $value['issue_desc'];?></p>
+		                    
+		                    <?php echo "<br>";?>
+	                    </details>
+	                    </div>
+	                <?php }
+	                }else{?>
+	                	<p class="noPosts"><?php echo "No issues posted"?></p>
+	                <?php }
+			?>
+		</p>		
+	</div>
+
+	<div class="resolved_issues">
+		<h2>Resolved Issues</h2>
+		<p>
+			<?php
+				include_once 'auth/db_connect.php';
+				$link = connect();
+				//session_start();
+				//if(!isset($_SESSION)) {session_start();}
+				if(isset($_SESSION['user_id'])){
+					$uid = $_SESSION['user_id'];
+				}
+				$uid = $_SESSION['user_id'];
+
+		        $sql = "SELECT issue_name, issue_desc FROM issues WHERE issue_by = '$uid' && status = 'Resolved'  ORDER BY issue_id DESC";
+		        $result = mysqli_query($link, $sql);
+		        $res = getData($result);
+
+				if($res > 0){
+	                foreach ($res as $key => $value) {
+	                    ?>
+	                    <div class="faqs">
+	                    <details>
+	                    	<summary><?php echo $value['issue_name'];?></summary>
+		                    <p class="iss"><?php echo $value['issue_desc'];?></p>
+		                    
 		                    <?php echo "<br>";?>
 	                    </details>
 	                    </div>

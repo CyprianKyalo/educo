@@ -164,5 +164,17 @@ $link = connect();
 			header("Location: ../help_center.php");
 		}
 	}
+
+	if(isset($_GET['id'])){
+		$id = $_GET['id'];
+
+		$query = "UPDATE issues SET status='Resolved' WHERE issue_id = '$id'";
+
+		if(insert($query) == "success"){
+			header("Location: ../common.php?name=issues");
+		}else{
+			echo "<script>alert('Please try again')</script>";
+		}
+	}
 ?>
 

@@ -43,7 +43,7 @@ include "Post_Com/config.php";?>
     </div>
 
             <div class="graph-users">
-                <h3>Total users</h3>
+                <h3><a href="common.php?name=users" style="color: #fff">Total users</a></h3>
                 <?php
 
                         $link = mysqli_connect("localhost", "root", "", "educo");
@@ -65,7 +65,7 @@ include "Post_Com/config.php";?>
                     ?>       
             </div>
             <div class="graph-posts">
-                <h3 style="margin-top: 15px;">Total posts</h3>
+                <h3 style="margin-top: 15px;"><a href="common.php?name=posts" style="color: #fff">Total posts</a></h3>
                     <?php
                     //session_start();
                     //$id = $_SESSION['userid'];
@@ -91,7 +91,7 @@ include "Post_Com/config.php";?>
 
             </div>
             <div class="graph-reply">
-                <h3 style="margin-top: 15px;">Total replies</h3>
+                <h3 style="margin-top: 15px;"><a href="common.php?name=reply" style="color: #fff">Total replies</a></h3>
                     <?php
                         if(!$link){
                             die("Could not connect: ".mysqli_error());
@@ -111,7 +111,7 @@ include "Post_Com/config.php";?>
             </div>
 
             <div class="graph-new-issues">
-                <h3><a href="#" style="color: #fff">New issues</a></h3>
+                <h3><a href="common.php?name=issues" style="color: #fff">New issues</a></h3>
                 <?php
 
                         $link = mysqli_connect("localhost", "root", "", "educo");
@@ -134,7 +134,7 @@ include "Post_Com/config.php";?>
             </div>
 
             <div class="total-comments">
-                <h3>Total Comments</h3>
+                <h3><a href="common.php?name=comments" style="color: #fff">Total Comments</a></h3>
                 <?php
 
                         $link = mysqli_connect("localhost", "root", "", "educo");
@@ -157,7 +157,7 @@ include "Post_Com/config.php";?>
             </div>
 
             <div class="total-categories">
-                <h3>Total Categories</h3>
+                <h3><a href="common.php?name=categories" style="color: #fff">Total Categories</a></h3>
                 <?php
 
                         $link = mysqli_connect("localhost", "root", "", "educo");
@@ -404,7 +404,16 @@ height: 30rem;
 }
 
 .posts-recent{
-border: 2px solid black;
+/*border: 2px solid black;
+width: 20%;
+height: 22rem;
+margin-left: 65rem;
+text-align: center;
+margin-top: -22rem;
+overflow-x: auto;
+overflow-y: auto;*/
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.526);
+border-radius: 5px;
 width: 20%;
 height: 22rem;
 margin-left: 65rem;
@@ -454,8 +463,12 @@ color: rgba(22, 180, 180);
 font-size: 20px;
 }
 
-.posts .posts-recent .my_posts{
-    padding: -5px;
+.posts-recent .my_posts{
+    /*padding: -5px;*/
+    padding: 5px;
+    color: white;
+    background: rgba(22, 170, 180);
+    margin-top: -6px;
 }
 
 .graph .graph-posts #postsCount, .graph .graph-reply #replyCount{

@@ -454,10 +454,10 @@ code {
 }
 
 .contact-faqs h2{
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
-.contact-faqs .faqs details, .my_issues .faqs details{
+.contact-faqs .faqs details, .my_issues .faqs details, .resolved_issues .faqs details{
   padding: 10px 20px;
   background: #f6f6f6;
   border-radius: 7px;
@@ -467,20 +467,21 @@ code {
   letter-spacing: 1px;
 }
 
-.contact-faqs .faqs details summary, .my_issues .faqs details summary{
+.contact-faqs .faqs details summary, .my_issues .faqs details summary, .resolved_issues .faqs details summary{
   outline: none;
   cursor: pointer;
 }
 
 .my_issues{
   margin-left: 55rem;
-  margin-top: -38rem;
- 
+  margin-top: -41.5rem;
+  overflow-x: auto;
+  overflow-y: auto;
   border-radius: 7px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
   background: #fff;
   width: 25%;
-  height: 400px;
+  height: 20rem;
 }
 
 .my_issues h2{
@@ -492,4 +493,70 @@ code {
   text-align: center;
   font-size: 20px;
   padding-top: 20px;
+}
+
+.resolved_issues{
+  margin-left: 55rem;
+  margin-top: 3rem;
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 7px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+  background: #fff;
+  width: 25%;
+  height: 20rem;
+}
+
+.resolved_issues h2{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.resolved_issues .noPosts{
+  text-align: center;
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+/*Tables*/
+.users{
+  margin-top: -1rem;
+  margin-left: 15rem;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.users table{
+  width: 90%;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+.users table thead tr th{
+  margin: 2rem;
+  background-color: rgba(22, 180, 180);
+  color: #fff;
+  padding: 7px;
+}
+
+.users table tbody td{
+  padding: 10px;
+  
+}
+
+.users table td{
+  margin-right: groove;
+}
+
+table tbody tr:nth-child(odd){
+  background-color: #e0e5d5;
+} 
+
+.users table tbody tr td a{
+  text-decoration: none;
+  padding: 7px 13px;
+  background-color: grey;
+  color: white;
+  border-radius: 5px;
 }

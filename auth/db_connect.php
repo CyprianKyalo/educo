@@ -28,6 +28,8 @@ function insert($sql){
                                     $rows[] = $row;
                                 }
                                 return $rows;
+                            }else{
+                            	echo "No record found";
                             }
                         }
 
